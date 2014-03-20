@@ -1,5 +1,6 @@
 define rsnapshot::conf (
     $ensure,
+    $conf_file          = "/etc/rsnapshot/${title}.conf",
     $snapshot_dir       = "${rsnapshot::params::snapshot_root}/${title}",
     $preexec_cmd        = $rsnapshot::params::preexec_cmd,
     $postexec_cmd       = $rsnapshot::params::postexec_cmd,
@@ -24,6 +25,28 @@ define rsnapshot::conf (
     $pid_file           = "${pid_dir}/${title}.pid",
 ) {
 
-    # TODO
+    include concat
+
+    if $ensure == absent {
+
+        file { $conf_file:
+            ensure => absent,
+        }
+
+    } else {
+
+        concat { $conf_file:
+            owner => 'root',
+            group => 'root',
+            mode  => '0644',
+        }
+
+        concat::fragment { "${conf_file}#header":
+            target  => $conf_file,
+            content => template('rsnapshot/rsnapshot.conf.erb'),
+            order   => 01,
+        }
+
+    }
 
 }
