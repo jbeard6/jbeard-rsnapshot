@@ -25,8 +25,6 @@ define rsnapshot::conf (
     $pid_file           = "${pid_dir}/${title}.pid",
 ) {
 
-    include concat
-
     if $ensure == absent {
 
         file { $conf_file:

@@ -31,7 +31,7 @@ snapshot_root	<%= @snapshot_dir %>
 # up to removable media, such as a FireWire or USB drive.
 #
 <% if defined?(@create_root) -%>
-no_create_root <%= @create_root? "1" : "0" %>
+no_create_root	<%= @create_root? "1" : "0" %>
 <% else -%>
 #no_create_root	1
 <% end -%>
@@ -75,7 +75,7 @@ cmd_ssh		<%= @ssh_cmd %>
 # Comment this out to disable syslog support.
 #
 <% if defined?(@logger_cmd) -%>
-cmd_logger  <%= @logger_cmd %>
+cmd_logger	<%= @logger_cmd %>
 <% else -%>
 #cmd_logger	/usr/bin/logger
 <% end -%>
@@ -85,7 +85,7 @@ cmd_logger  <%= @logger_cmd %>
 # "du_args" parameter below.
 #
 <% if defined?(@du_cmd) -%>
-cmd_du      <%= @du_cmd %>
+cmd_du	<%= @du_cmd %>
 <% else -%>
 #cmd_du		/usr/bin/du
 <% end -%>
@@ -102,7 +102,7 @@ cmd_rsnapshot_diff	<%= @rsnapshot_diff_cmd %>
 # before rsnapshot syncs files
 #
 <% if defined?(@preexec_cmd) -%>
-cmd_preexec     <%= @preexec_cmd %>
+cmd_preexec	<%= @preexec_cmd %>
 <% else -%>
 #cmd_preexec	/path/to/preexec/script
 <% end -%>
@@ -111,7 +111,7 @@ cmd_preexec     <%= @preexec_cmd %>
 # after rsnapshot syncs files
 #
 <% if defined?(@postexec_cmd) -%>
-cmd_postexec    <%= @postexec_cmd %>
+cmd_postexec	<%= @postexec_cmd %>
 <% else -%>
 #cmd_postexec	/path/to/postexec/script
 <% end -%>
@@ -123,7 +123,7 @@ cmd_postexec    <%= @postexec_cmd %>
 #########################################
 
 <% if defined?(@interval_hourly) -%>
-interval    hourly  <%= @interval_hourly %>
+interval	hourly	<%= @interval_hourly %>
 <% end -%>
 <% if defined?(@interval_daily) -%>
 interval	daily	<%= @interval_daily %>
@@ -132,7 +132,7 @@ interval	daily	<%= @interval_daily %>
 interval	weekly	<%= @interval_weekly %>
 <% end -%>
 <% if defined?(@interval_monthly) -%>
-interval	monthly <%= @interval_monthly %>
+interval	monthly	<%= @interval_monthly %>
 <% end -%>
 
 ############################################
@@ -195,19 +195,19 @@ lockfile	<%= @pid_file %>
 <% if defined?(@include) -%>
 <%  if @include.is_a?(Array) -%>
 <%      @include.each do |pattern| -%>
-include     <%= @pattern %>
+include	<%= @pattern %>
 <%      end -%>
 <%  else -%>
-include     <%= @include %>
+include	<%= @include %>
 <%  end -%>
 <% end -%>
 <% if defined?(@exclude) -%>
 <%  if @exclude.is_a?(Array) -%>
 <%      @exclude.each do |pattern| -%>
-exclude     <%= @pattern %>
+exclude	<%= @pattern %>
 <%      end -%>
 <%  else -%>
-exclude     <%= @exclude %>
+exclude	<%= @exclude %>
 <%  end -%>
 <% end -%>
 

@@ -6,8 +6,6 @@ define rsnapshot::backup::target (
     $rsync_opts = undef,
 ) {
 
-    include concat
-
     concat::fragment { "${conf_file}#${title}":
         target => $conf_file,
         content => template('rsnapshot/target.fragment.erb'),

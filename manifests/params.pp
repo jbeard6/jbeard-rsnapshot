@@ -1,8 +1,9 @@
 class rsnapshot::params {
     $package_name       = 'rsnapshot'
     $conf_dir           = '/etc/rsnapshot'
-    $log_dir            = '/var/log/rsnapshot'
     $snapshot_dir       = '/srv/backup/snapshots'
+    $log_dir            = '/var/log/rsnapshot'
+    $pid_dir            = '/var/run'
 
     $config_version     = '1.2'
     $create_root        = undef
@@ -24,7 +25,5 @@ class rsnapshot::params {
     $interval_monthly   = undef
     $verbosity          = 2
     $log_level          = 3
-    $log_dir            = '/var/log',
-    $pid_dir            = '/var/run',
 
 }
